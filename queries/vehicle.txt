@@ -1,0 +1,138 @@
+mutation createVehicle($wpId: Int!, $userId: Int!, $year: Int!, $make: String!, $model: String!, $nickname: String, $instagram: String, $facebook: String, $miles: String, $color: String, $trimLevel: String, $engine: String, $horsepower: String, $torque: String, $fuelType: String, $engineMods: String, $drivetrain: String, $transmission: String, $interiorMods: String, $wheels: String, $tires: String, $curbWeight: String, $exteriorMods: String, $suspension: String, $blurb: String, $futurePlans: String, $wheelbase: String, $acceleratingTime: String, $brakingTime: String, $quarterMileTime: String, $brakes: String, $epa: String, $awards: String, $homeState: String, $forSale: Boolean, $additionalInformation: String, $bodyStyle: String) {
+  createVehicle(wpId: $wpId, userId: $userId, year: $year, make: $make, model: $model, nickname: $nickname, instagram: $instagram, facebook: $facebook, miles: $miles, color: $color, trimLevel: $trimLevel, engine: $engine, horsepower: $horsepower, torque: $torque, fuelType: $fuelType, engineMods: $engineMods, drivetrain: $drivetrain, transmission: $transmission, interiorMods: $interiorMods, wheels: $wheels, tires: $tires, curbWeight: $curbWeight, exteriorMods: $exteriorMods, suspension: $suspension, blurb: $blurb, futurePlans: $futurePlans, wheelbase: $wheelbase, acceleratingTime: $acceleratingTime, brakingTime: $brakingTime, quarterMileTime: $quarterMileTime, brakes: $brakes, epa: $epa, awards: $awards, homeState: $homeState, forSale: $forSale, additionalInformation: $additionalInformation, bodyStyle: $bodyStyle) {
+    id
+    wpId
+    year
+    make
+    model
+    nickname
+    instagram
+    facebook
+    miles
+    color
+    trimLevel
+    engine
+    horsepower
+    torque
+    fuelType
+    engineMods
+    drivetrain
+    transmission
+    interiorMods
+    wheels
+    tires
+    curbWeight
+    exteriorMods
+    suspension
+    blurb
+    futurePlans
+    wheelbase
+    acceleratingTime
+    brakingTime
+    quarterMileTime
+    brakes
+    epa
+    awards
+    homeState
+    forSale
+    additionalInformation
+    bodyStyle
+    user {
+      id
+      username
+    }
+  }
+}
+
+{
+  "wpId": 1786,
+  "userId": 1,
+  "year": 2016,
+  "make": "Chevrolet",
+  "model": "Equinox",
+  "nickname": "The Den Mobile",
+  "instagram": "http://instagram.com/thedenmobile",
+  "facebook": "http://facebook.com/thedenmobile",
+  "miles": "69,000",
+  "color": "Graphite",
+  "trimLevel": "LTZ1",
+  "engine": "V4",
+  "horsepower": "Not Alot",
+  "torque": "Fully",
+  "fuelType": "Gas",
+  "engineMods": "Shitty",
+  "drivetrain": "Drops of Jupiter",
+  "transmission": "Skippy",
+  "interiorMods": "Stains",
+  "wheels": "Chrome",
+  "tires": "Stock",
+  "curbWeight": "2 Tons",
+  "exteriorMods": "Chrome Package",
+  "suspension": "Shocks",
+  "blurb": "Lease -> Own",
+  "futurePlans": "Keep it Forever",
+  "wheelbase": "21",
+  "acceleratingTime": "SLOW AF",
+  "brakingTime": "FAST",
+  "quarterMileTime": "Way too long",
+  "brakes": "Recently Replaced",
+  "epa": "25",
+  "awards": "Oscar",
+  "homeState": "RI",
+  "forSale": false,
+  "additionalInformation": "Info Info Info",
+  "bodyStyle": "Sunburn"
+}
+
+mutation updateVehicle($id: ID!, $wpId: Int!, $userId: Int!, $year: Int!, $make: String!, $model: String!, $nickname: String, $instagram: String, $facebook: String, $miles: String, $color: String, $trimLevel: String, $engine: String, $horsepower: String, $torque: String, $fuelType: String, $engineMods: String, $drivetrain: String, $transmission: String, $interiorMods: String, $wheels: String, $tires: String, $curbWeight: String, $exteriorMods: String, $suspension: String, $blurb: String, $futurePlans: String, $wheelbase: String, $acceleratingTime: String, $brakingTime: String, $quarterMileTime: String, $brakes: String, $epa: String, $awards: String, $homeState: String, $forSale: Boolean, $additionalInformation: String, $bodyStyle: String) {
+  updateVehicle(id: $id, wpId: $wpId, userId: $userId, year: $year, make: $make, model: $model, nickname: $nickname, instagram: $instagram, facebook: $facebook, miles: $miles, color: $color, trimLevel: $trimLevel, engine: $engine, horsepower: $horsepower, torque: $torque, fuelType: $fuelType, engineMods: $engineMods, drivetrain: $drivetrain, transmission: $transmission, interiorMods: $interiorMods, wheels: $wheels, tires: $tires, curbWeight: $curbWeight, exteriorMods: $exteriorMods, suspension: $suspension, blurb: $blurb, futurePlans: $futurePlans, wheelbase: $wheelbase, acceleratingTime: $acceleratingTime, brakingTime: $brakingTime, quarterMileTime: $quarterMileTime, brakes: $brakes, epa: $epa, awards: $awards, homeState: $homeState, forSale: $forSale, additionalInformation: $additionalInformation, bodyStyle: $bodyStyle)
+}
+
+{
+  "id": 1,
+  "wpId": 17862,
+  "userId": 2,
+  "year": 1996,
+  "make": "Toyota",
+  "model": "Corolla",
+  "nickname": "rolla",
+  "instagram": "http://instagram.com/rolla",
+  "facebook": "http://facebook.com/rolla",
+  "miles": "150,000",
+  "color": "Purple",
+  "trimLevel": "Standard",
+  "engine": "V4",
+  "horsepower": "Not Alot2",
+  "torque": "Fully2",
+  "fuelType": "Gas2",
+  "engineMods": "Shitty2",
+  "drivetrain": "Drops of Jupiter2",
+  "transmission": "Skippy2",
+  "interiorMods": "Head Unit",
+  "wheels": "Chrome2",
+  "tires": "Stock2",
+  "curbWeight": "1 Tons",
+  "exteriorMods": "Replacement Mirror",
+  "suspension": "Shocks2",
+  "blurb": "Gram -> Own",
+  "futurePlans": "Give to Hailey",
+  "wheelbase": "16",
+  "acceleratingTime": "Standard",
+  "brakingTime": "FAST2",
+  "quarterMileTime": "Way too long2",
+  "brakes": "Recently Replaced2",
+  "epa": "21",
+  "awards": "Tony",
+  "homeState": "MA",
+  "forSale": true,
+  "additionalInformation": "Info2 Info2 Info2"
+  "bodyStyle": "White as a sheet"
+}
+
+mutation deleteVehicle($id: ID!) {
+  deleteVehicle(id: $id)
+}
+
+{
+  "id": 1
+}

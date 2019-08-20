@@ -1,0 +1,73 @@
+mutation createUser($wpId: Int, $username: String!, $email: String!, $role: String!, $firstName: String!, $lastName: String!, $verified: Boolean, $profilePhoto: String, $coverPhoto: String, $description: String, $url: String, $dob: Date, $instagram: String, $twitter: String, $facebook: String, $youtube: String, $vimeo: String) {
+  createUser(wpId: $wpId, username: $username, email: $email, role: $role, firstName: $firstName, lastName: $lastName, verified: $verified, profilePhoto: $profilePhoto, coverPhoto: $coverPhoto, description: $description, url: $url, dob: $dob, instagram: $instagram, twitter: $twitter, facebook: $facebook, youtube: $youtube, vimeo: $vimeo) {
+    id
+    wpId
+    username
+    email
+    role
+    firstName
+    lastName
+    verified
+    profilePhoto
+    coverPhoto
+    description
+    url
+    dob
+    instagram
+    twitter
+    facebook
+    youtube
+    vimeo
+  }
+}
+
+{
+  "wpId": 12345,
+  "username": "gberg927",
+  "email": "dennis.glasberg@gmail.com",
+  "role": "admin",
+  "firstName": "dennis",
+  "lastName": "glasberg",
+  "verified": true,
+  "profilePhoto": "https://boostbadge.com/wp-content/uploads/ultimatemember/12/profile_photo-190x190.jpg?1564755216",
+  "description": "Just a G",
+  "url": "http://dennisglasberg.com",
+  "dob": "1989-09-27",
+  "instagram": "niceman_cometh",
+  "twitter": "niceman_cometh",
+  "facebook": "dennis.glasberg",
+  "youtube": "dennis glasberg",
+  "vimeo": ""
+}
+
+mutation updateUser($id: ID!, $wpId: Int, $username: String, $email: String, $role: String, $firstName: String, $lastName: String, $verified: Boolean, $profilePhoto: String, $coverPhoto: String, $description: String, $url: String, $dob: Date, $instagram: String, $twitter: String, $facebook: String, $youtube: String, $vimeo: String) {
+  updateUser(id: $id, wpId: $wpId, username: $username, email: $email, role: $role, firstName: $firstName, lastName: $lastName, verified: $verified, profilePhoto: $profilePhoto, coverPhoto: $coverPhoto, description: $description, url: $url, dob: $dob, instagram: $instagram, twitter: $twitter, facebook: $facebook, youtube: $youtube, vimeo: $vimeo)
+}
+
+{
+  "id": 1,
+  "wpId": 123452,
+  "username": "gberg9272",
+  "email": "dennis.glasberg@gmail.com2",
+  "role": "user",
+  "firstName": "dennis2",
+  "lastName": "glasberg2",
+  "verified": false,
+  "profilePhoto": "https://scontent.fbos1-2.fna.fbcdn.net/v/t1.0-9/40158035_10211753385178604_5583364305484513280_n.jpg?_nc_cat=110&_nc_oc=AQmGVVzmgFJmemKTY61msX0ZIe8dj5Y883IE0ZF0GWEprd6pxSU7JsRj2ERp8kEBWYE&_nc_ht=scontent.fbos1-2.fna&oh=932ff53c3cae92c3b195cc75e4616b84&oe=5DDA55A3",
+  "description": "Just a G2",
+  "url": "http://dennisglasberg.com2",
+  "dob": "1989-09-28",
+  "instagram": "niceman_cometh2",
+  "twitter": "niceman_cometh2",
+  "facebook": "dennis.glasberg2",
+  "youtube": "dennis glasberg2",
+  "vimeo": ""
+}
+
+mutation deleteUser($id: ID!) {
+  deleteUser(id: $id)
+}
+
+{
+  "id": 1
+}
