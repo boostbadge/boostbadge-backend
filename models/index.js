@@ -1,9 +1,15 @@
 import Sequelize from 'sequelize';
 
-const env = process.env.NODE_ENV || 'development';
-const bbConfig = require('../config/bbConfig.json')[env];
+require('dotenv').config({ path: 'variables.env' });
 
-const sequelize = new Sequelize(bbConfig);
+const env = process.env.NODE_ENV || 'DEV';
+const bbConfig = require('../config/dbBBConfig.json')[env];
+
+const sequelize = new Sequelize({
+  ...bbConfig,
+  username: process.env.DB_BB_USERNAME,
+  password: process.env.DB_BB_PASSWORD,
+});
 
 const models = {
   User: sequelize.import('./user'),

@@ -5,12 +5,14 @@ export default {
   },
 
   Query: {
-    getVehicles: (parent, args, { models }) => models.Vehicle.findAll(),
-    getVehicle: (parent, { id }, { models }) => models.Vehicle.findOne({ where: { id } }),
+    vehicles: (parent, args, { models }) => models.Vehicle.findAll(),
+    vehicle: (parent, { id }, { models }) =>
+      models.Vehicle.findOne({ where: { id } }),
   },
 
   Mutation: {
-    createVehicle: async (parent, args, { models }) => models.Vehicle.create(args),
+    createVehicle: async (parent, args, { models }) =>
+      models.Vehicle.create(args),
     updateVehicle: async (parent, args, { models }) =>
       models.Vehicle.update(
         {

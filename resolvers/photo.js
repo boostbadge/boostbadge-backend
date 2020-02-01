@@ -5,7 +5,8 @@ export default {
 
   Query: {
     getPhotos: (parent, args, { models }) => models.Photo.findAll(),
-    getPhoto: (parent, { id }, { models }) => models.Photo.findOne({ where: { id } }),
+    getPhoto: (parent, { id }, { models }) =>
+      models.Photo.findOne({ where: { id } }),
   },
 
   Mutation: {

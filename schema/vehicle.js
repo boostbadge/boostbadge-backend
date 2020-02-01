@@ -44,8 +44,8 @@ export default `
   }
 
   type Query {
-    getVehicles: [Vehicle!]!
-    getVehicle(id: ID!): Vehicle!
+    vehicles: [Vehicle!]!
+    vehicle(id: ID!): Vehicle!
   }
 
   type Mutation {

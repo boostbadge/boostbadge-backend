@@ -10,8 +10,10 @@ export default {
   },
 
   Query: {
-    users: (parent, args, { models }) => models.User.findAll({ order: [['createdAt', 'DESC']] }),
-    user: (parent, { id }, { models }) => models.User.findOne({ where: { id } }),
+    users: (parent, args, { models }) =>
+      models.User.findAll({ order: [['createdAt', 'DESC']] }),
+    user: (parent, { id }, { models }) =>
+      models.User.findOne({ where: { id } }),
     currentUser: (parent, args, { models, req }, info) => {
       const { userId } = req;
       if (!userId) {
@@ -76,7 +78,7 @@ export default {
       if (!isValid) {
         throw new Error(`Invalid Password.`);
       }
-      const token = jwt.sign({ userId: user.id }, process.env.APP_SECRET);
+      const token = await jwt.sign({ userId: user.id }, process.env.APP_SECRET);
       res.cookie('token', token, {
         httpOnly: true,
         maxAge: 1000 * 60 * 60,

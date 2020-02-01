@@ -2,5 +2,12 @@
   "workbench.colorCustomizations": {
     "titleBar.activeBackground": "#FF2C70",
     "titleBar.inactiveBackground": "#FF2C70CC"
+  },
+  "files.exclude": {
+    ".gitignore": true,
+    "package-lock.json": true,
+    "readme.md": true,
+    "variables.env.sample": true,
+    "node_modules/": true
   }
 }
