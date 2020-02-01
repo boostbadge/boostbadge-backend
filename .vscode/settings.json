@@ -7,7 +7,7 @@
     ".gitignore": true,
     "package-lock.json": true,
     "readme.md": true,
-    "variables.env.sample": true,
+    "variables.env.sample": false,
     "node_modules/": true
   }
 }
