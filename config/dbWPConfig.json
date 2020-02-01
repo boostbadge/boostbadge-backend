@@ -1,0 +1,10 @@
+{
+  "DEV": {
+    "host": "boostbadge.com",
+    "database": "alexhulm_wrdp1"
+  },
+  "PROD": {
+    "host": "127.0.0.1",
+    "database": "database_production"
+  }
+}

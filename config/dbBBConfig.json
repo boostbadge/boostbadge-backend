@@ -1,0 +1,14 @@
+{
+  "DEV": {
+    "host": "boostbadge.com",
+    "database": "alexhulm_boostbadge",
+    "dialect": "mysql",
+    "logging": false
+  },
+  "PROD": {
+    "host": "127.0.0.1",
+    "database": "database_production",
+    "dialect": "mysql",
+    "logging": false
+  }
+}
