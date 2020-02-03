@@ -1,11 +1,11 @@
 {
-  "DEV": {
+  "development": {
     "host": "boostbadge.com",
     "database": "alexhulm_boostbadge",
     "dialect": "mysql",
     "logging": false
   },
-  "PROD": {
+  "production": {
     "host": "boostbadge.com",
     "database": "alexhulm_boostbadge",
     "dialect": "mysql",

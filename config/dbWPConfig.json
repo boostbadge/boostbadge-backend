@@ -1,9 +1,9 @@
 {
-  "DEV": {
+  "development": {
     "host": "boostbadge.com",
     "database": "alexhulm_wrdp1"
   },
-  "PROD": {
+  "production": {
     "host": "boostbadge.com",
     "database": "alexhulm_wrdp1"
   }

@@ -2,7 +2,7 @@ import Sequelize from 'sequelize';
 
 require('dotenv').config({ path: 'variables.env' });
 
-const env = process.env.NODE_ENV || 'DEV';
+const env = process.env.NODE_ENV || 'development';
 const bbConfig = require('../config/dbBBConfig.json')[env];
 
 console.log(bbConfig);

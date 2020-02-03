@@ -1,6 +1,6 @@
 require('dotenv').config({ path: 'variables.env' });
 
-const env = process.env.NODE_ENV || 'DEV';
+const env = process.env.NODE_ENV || 'development';
 const wpConfig = require('../config/dbWPConfig.json')[env];
 
 export default {
