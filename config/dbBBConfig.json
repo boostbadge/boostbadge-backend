@@ -3,12 +3,14 @@
     "host": "boostbadge.com",
     "database": "alexhulm_boostbadge",
     "dialect": "mysql",
+    "dialectModule": "mysql2",
     "logging": false
   },
   "production": {
     "host": "boostbadge.com",
     "database": "alexhulm_boostbadge",
     "dialect": "mysql",
+    "dialectModule": "mysql2",
     "logging": false
   }
 }
