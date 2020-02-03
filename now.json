@@ -1,4 +1,12 @@
 {
   "version": 2,
-  "builds": [{ "src": "index.js", "use": "@now/node" }]
+  "builds": [{ "src": "index.js", "use": "@now/node" }],
+  "env": {
+    "FRONTEND_URL": "@frontend_url",
+    "APP_SECRET": "@app_secret",
+    "DB_BB_USERNAME": "@db_bb_username",
+    "DB_BB_PASSWORD": "@db_bb_password",
+    "DB_WP_USERNAME": "@db_wp_username",
+    "DB_WP_PASSWORD": "@db_wp_password"
+  }
 }
