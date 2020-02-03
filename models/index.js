@@ -5,6 +5,7 @@ require('dotenv').config({ path: 'variables.env' });
 const env = process.env.NODE_ENV || 'DEV';
 const bbConfig = require('../config/dbBBConfig.json')[env];
 
+console.log(bbConfig);
 const sequelize = new Sequelize({
   ...bbConfig,
   username: process.env.DB_BB_USERNAME,
