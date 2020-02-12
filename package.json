@@ -8,12 +8,16 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "scrape": "babel-node ./scraper",
-    "start": "NODE_ENV=production node index.js",
+    "start": "nodemon index.js --exec babel-node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Dennis Glasberg",
   "license": "MIT",
   "dependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
     "add": "^2.0.6",
     "apollo-server-express": "^2.7.0",
     "bcryptjs": "^2.4.3",
@@ -33,10 +37,6 @@
     "sequelize": "^5.10.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@babel/node": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
     "babel-eslint": "^9.0.0",
     "babel-loader": "^8.0.6",
     "eslint": "^5.16.0",
