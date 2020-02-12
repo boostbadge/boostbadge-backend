@@ -10,12 +10,17 @@ export default (sequelize, DataTypes) => {
     wpId: {
       type: Sequelize.INTEGER,
     },
-    username: {
+    deleted: {
+      type: Sequelize.BOOLEAN,
+      allowNull: false,
+      default: false,
+    },
+    email: {
       type: Sequelize.STRING,
       allowNull: false,
       unique: true,
     },
-    email: {
+    displayName: {
       type: Sequelize.STRING,
       allowNull: false,
       unique: true,
@@ -24,15 +29,26 @@ export default (sequelize, DataTypes) => {
       type: Sequelize.STRING,
       allowNull: false,
     },
+    resetToken: {
+      type: Sequelize.STRING,
+    },
+    resetTokenExpiry: {
+      type: Sequelize.STRING,
+    },
     role: {
       type: DataTypes.ENUM('admin', 'user'),
       allowNull: false,
       defaultValue: 'user',
     },
-    resetToken: {
+    verified: {
+      type: Sequelize.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    },
+    profilePhoto: {
       type: Sequelize.STRING,
     },
-    resetTokenExpiry: {
+    coverPhoto: {
       type: Sequelize.STRING,
     },
     firstName: {
@@ -43,25 +59,11 @@ export default (sequelize, DataTypes) => {
       type: Sequelize.STRING,
       allowNull: false,
     },
-    verified: {
-      type: Sequelize.BOOLEAN,
-      defaultValue: false,
-      allowNull: false,
-    },
-    profilePhoto: {
-      type: Sequelize.STRING,
-    },
-    coverPhoto: {
-      type: Sequelize.STRING,
-    },
     description: {
       type: Sequelize.STRING,
     },
     url: {
       type: Sequelize.STRING,
-    },
-    dob: {
-      type: Sequelize.DATEONLY,
     },
     instagram: {
       type: Sequelize.STRING,
@@ -82,6 +84,7 @@ export default (sequelize, DataTypes) => {
 
   User.associate = models => {
     User.hasMany(models.Vehicle);
+    User.hasMany(models.Like);
   };
 
   return User;

@@ -1,6 +1,7 @@
 import { scrapeUsers } from './user';
 import { scrapeVehicles } from './vehicle';
 import { scrapePhotos } from './photo';
+import { scrapeBadges } from './badge';
 import models from '../models';
 
 const scrape = async () => {
@@ -9,6 +10,7 @@ const scrape = async () => {
   await scrapeUsers();
   await scrapeVehicles();
   await scrapePhotos();
+  await scrapeBadges();
 };
 
 scrape();

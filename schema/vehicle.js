@@ -1,57 +1,52 @@
 export default `
-
   type Vehicle {
     id: ID!
     wpId: Int!
+    featuredImage: String
+    forSale: Boolean!
     year: Int!
     make: String!
     model: String!
     nickname: String
-    featuredImage: String
-    instagram: String
-    facebook: String
+    location: String
+    description: String
+    exteriorColor: String
+    interiorColor: String
     miles: String
-    color: String
-    trimLevel: String
+    awards: String
+    vin: String
     engine: String
     horsepower: String
     torque: String
-    fuelType: String
-    engineMods: String
-    drivetrain: String
     transmission: String
-    interiorMods: String
+    suspension: String
     wheels: String
     tires: String
-    curbWeight: String
-    exteriorMods: String
-    suspension: String
-    blurb: String
-    futurePlans: String
-    wheelbase: String
-    acceleratingTime: String
-    brakingTime: String
-    quarterMileTime: String
     brakes: String
-    epa: String
-    awards: String
-    homeState: String
-    forSale: Boolean
-    additionalInformation: String
-    bodyStyle: String
+    curbWeight: String
+    modifications: String
+    topSpeed: String
+    acceleratingTime: String
+    quarterMileTime: String
+    brakingTime: String
+    url: String
+    instagram: String
+    facebook: String
+    likes: Int
     photos: [Photo]
     user: User!
+    badge: Badge
   }
 
   type Query {
-    vehicles: [Vehicle!]!
-    vehicle(id: ID!): Vehicle!
+    listVehicles: [Vehicle!]!
+    getVehicle(id: ID!): Vehicle!
   }
 
   type Mutation {
-    createVehicle(wpId: Int!, userId: Int!, year: Int!, make: String!, model: String!, nickname: String, instagram: String, facebook: String, miles: String, color: String, trimLevel: String, engine: String, horsepower: String, torque: String, fuelType: String, engineMods: String, drivetrain: String, transmission: String, interiorMods: String, wheels: String, tires: String, curbWeight: String, exteriorMods: String, suspension: String, blurb: String, futurePlans: String, wheelbase: String, acceleratingTime: String, brakingTime: String, quarterMileTime: String, brakes: String, epa: String, awards: String, homeState: String, forSale: Boolean, additionalInformation: String, bodyStyle: String): Vehicle!
+    createVehicle(wpId: Int!, badgeId: Int, featuredImage: String, forSale: Boolean!, year: Int!, make: String!, model: String!, nickname: String, location: String, description: String, exteriorColor: String, interiorColor: String, miles: String, awards: String, vin: String, engine: String, horsepower: String, torque: String, transmission: String, suspension: String, wheels: String, tires: String, brakes: String, curbWeight: String, modifications: String, topSpeed: String, acceleratingTime: String, quarterMileTime: String, brakingTime: String, url: String, instagram: String, facebook: String): Vehicle!
 
-    updateVehicle(id: ID!, wpId: Int!, userId: Int!, year: Int!, make: String!, model: String!, nickname: String, instagram: String, facebook: String, miles: String, color: String, trimLevel: String, engine: String, horsepower: String, torque: String, fuelType: String, engineMods: String, drivetrain: String, transmission: String, interiorMods: String, wheels: String, tires: String, curbWeight: String, exteriorMods: String, suspension: String, blurb: String, futurePlans: String, wheelbase: String, acceleratingTime: String, brakingTime: String, quarterMileTime: String, brakes: String, epa: String, awards: String, homeState: String, forSale: Boolean, additionalInformation: String, bodyStyle: String): [Int!]!
+    updateVehicle(id: ID!, badgeId: Int, wpId: Int!, featuredImage: String, forSale: Boolean!, year: Int!, make: String!, model: String!, nickname: String, location: String, description: String, exteriorColor: String, interiorColor: String, miles: String, awards: String, vin: String, engine: String, horsepower: String, torque: String, transmission: String, suspension: String, wheels: String, tires: String, brakes: String, curbWeight: String, modifications: String, topSpeed: String, acceleratingTime: String, quarterMileTime: String, brakingTime: String, url: String, instagram: String, facebook: String): [Int!]!
 
     deleteVehicle(id: ID!): Int!
   }

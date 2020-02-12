@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
 
 export default sequelize => {
-  const Photo = sequelize.define('photo', {
+  const Badge = sequelize.define('badge', {
     id: {
       type: Sequelize.INTEGER,
       primaryKey: true,
@@ -9,22 +9,25 @@ export default sequelize => {
     },
     wpId: {
       type: Sequelize.INTEGER,
+    },
+    bbId: {
+      type: Sequelize.STRING,
       allowNull: false,
       unique: true,
     },
-    url: {
-      type: Sequelize.STRING,
+    activated: {
+      type: Sequelize.BOOLEAN,
       allowNull: false,
+      default: false,
     },
-    localUrl: {
+    imageUrl: {
       type: Sequelize.STRING,
-      allowNull: false,
     },
   });
 
-  Photo.associate = models => {
-    Photo.belongsTo(models.Vehicle);
+  Badge.associate = models => {
+    Badge.belongsTo(models.Vehicle);
   };
 
-  return Photo;
+  return Badge;
 };

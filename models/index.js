@@ -5,7 +5,6 @@ require('dotenv').config({ path: 'variables.env' });
 const env = process.env.NODE_ENV || 'development';
 const bbConfig = require('../config/dbBBConfig.json')[env];
 
-console.log(bbConfig);
 const sequelize = new Sequelize({
   ...bbConfig,
   username: process.env.DB_BB_USERNAME,
@@ -16,6 +15,8 @@ const models = {
   User: sequelize.import('./user'),
   Vehicle: sequelize.import('./vehicle'),
   Photo: sequelize.import('./photo'),
+  Like: sequelize.import('./like'),
+  Badge: sequelize.import('./badge'),
 };
 
 Object.keys(models).forEach(modelName => {

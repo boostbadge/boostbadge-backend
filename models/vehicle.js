@@ -11,6 +11,14 @@ export default sequelize => {
       type: Sequelize.INTEGER,
       allowNull: false,
     },
+    featuredImage: {
+      type: Sequelize.STRING,
+    },
+    forSale: {
+      type: Sequelize.BOOLEAN,
+      allowNull: false,
+      default: false,
+    },
     year: {
       type: Sequelize.INTEGER,
       allowNull: false,
@@ -23,25 +31,28 @@ export default sequelize => {
       type: Sequelize.STRING,
       allowNull: false,
     },
-    featuredImage: {
-      type: Sequelize.STRING,
-    },
     nickname: {
       type: Sequelize.STRING,
     },
-    instagram: {
+    location: {
       type: Sequelize.STRING,
     },
-    facebook: {
+    description: {
+      type: Sequelize.STRING,
+    },
+    exteriorColor: {
+      type: Sequelize.STRING,
+    },
+    interiorColor: {
       type: Sequelize.STRING,
     },
     miles: {
       type: Sequelize.STRING,
     },
-    color: {
+    awards: {
       type: Sequelize.STRING,
     },
-    trimLevel: {
+    vin: {
       type: Sequelize.STRING,
     },
     engine: {
@@ -53,19 +64,10 @@ export default sequelize => {
     torque: {
       type: Sequelize.STRING,
     },
-    fuelType: {
-      type: Sequelize.STRING,
-    },
-    engineMods: {
-      type: Sequelize.STRING,
-    },
-    drivetrain: {
-      type: Sequelize.STRING,
-    },
     transmission: {
       type: Sequelize.STRING,
     },
-    interiorMods: {
+    suspension: {
       type: Sequelize.STRING,
     },
     wheels: {
@@ -74,53 +76,34 @@ export default sequelize => {
     tires: {
       type: Sequelize.STRING,
     },
+    brakes: {
+      type: Sequelize.STRING,
+    },
     curbWeight: {
       type: Sequelize.STRING,
     },
-    exteriorMods: {
+    modifications: {
       type: Sequelize.STRING,
     },
-    suspension: {
-      type: Sequelize.STRING,
-    },
-    blurb: {
-      type: Sequelize.STRING,
-    },
-    futurePlans: {
-      type: Sequelize.STRING,
-    },
-    wheelbase: {
+    topSpeed: {
       type: Sequelize.STRING,
     },
     acceleratingTime: {
       type: Sequelize.STRING,
     },
-    brakingTime: {
-      type: Sequelize.STRING,
-    },
     quarterMileTime: {
       type: Sequelize.STRING,
     },
-    brakes: {
+    brakingTime: {
       type: Sequelize.STRING,
     },
-    epa: {
+    url: {
       type: Sequelize.STRING,
     },
-    awards: {
+    instagram: {
       type: Sequelize.STRING,
     },
-    homeState: {
-      type: Sequelize.STRING,
-    },
-    forSale: {
-      type: Sequelize.BOOLEAN,
-      defaultValue: false,
-    },
-    additionalInformation: {
-      type: Sequelize.STRING,
-    },
-    bodyStyle: {
+    facebook: {
       type: Sequelize.STRING,
     },
   });
@@ -128,6 +111,8 @@ export default sequelize => {
   Vehicle.associate = models => {
     Vehicle.belongsTo(models.User);
     Vehicle.hasMany(models.Photo);
+    Vehicle.hasMany(models.Like);
+    Vehicle.hasOne(models.Badge);
   };
 
   return Vehicle;

@@ -10,6 +10,7 @@ async function createPhoto(wpPhoto) {
     wpId: wpPhoto.wpId,
     vehicleId: vehicle.id,
     url: wpPhoto.url,
+    localUrl: wpPhoto.url,
   });
 }
 

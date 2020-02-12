@@ -1,21 +1,14 @@
 export default `
-
   type Photo {
     id: Int!
     wpId: Int
     url: String!
-    description: String
+    localUrl: String!
     vehicle: Vehicle!
   }
 
-  type Query {
-    getPhotos: [Photo!]!
-    getPhoto(id: ID!): Photo!
-  }
-
   type Mutation {
-    createPhoto(wpId: Int!, url: String!, description: String): Photo!
+    createPhoto(vehicleId: Int!, wpId: Int!, url: String!, localUrl: String!): Photo!
     deletePhoto(id: ID!): Int!
   }
-
 `;

@@ -1,27 +1,21 @@
 export default `
-  scalar Date
-
-  type SuccessMessage {
-    message: String
-  }
-
   type User {
     id: ID!
     wpId: Int!
-    username: String!
+    deleted: Boolean!
     email: String!
+    displayName: String!
     password: String!
-    role: String!
     resetToken: String
     resetTokenExpiry: String
-    firstName: String!
-    lastName: String!
+    role: String!
     verified: Boolean
     profilePhoto: String
     coverPhoto: String
+    firstName: String!
+    lastName: String!
     description: String
     url: String
-    dob: Date
     instagram: String
     twitter: String
     facebook: String
@@ -33,24 +27,14 @@ export default `
   }
 
   type Query {
-    users: [User!]!
-    user(id: ID!): User!
-    currentUser: User
+    listUsers: [User!]!
+    getUser(id: ID!): User!
   }
 
   type Mutation {
-    createUser(wpId: Int!, username: String!, email: String!, role: String!, firstName: String!, lastName: String!, verified: Boolean, profilePhoto: String, coverPhoto: String, description: String, url: String, dob: Date, instagram: String, twitter: String, facebook: String, youtube: String, vimeo: String): User!
+    createUser(wpId: Int, email: String!, displayName: String!, role: String!, verified: Boolean, profilePhoto: String, coverPhoto: String, firstName: String!, lastName: String!, description: String, url: String, instagram: String, twitter: String, facebook: String, youtube: String, vimeo: String): User!
 
-    updateUser(id: ID!, wpId: Int, username: String, email: String, role: String, firstName: String, lastName: String, verified: Boolean, profilePhoto: String, coverPhoto: String, description: String, url: String, dob: Date, instagram: String, twitter: String, facebook: String, youtube: String, vimeo: String): [Int!]!
-
-    register(username: String!, email: String!, firstName: String!, lastName: String!,password: String!): User!
-
-    login(email: String!, password: String!): User!
-
-    logout: SuccessMessage
-
-    requestReset(email: String!): SuccessMessage
-    resetPassword(resetToken: String!, password: String!, confirmPassword: String!): User!
+    updateUser(id: ID!, wpId: Int, email: String!, displayName: String!, role: String!, verified: Boolean, profilePhoto: String, coverPhoto: String, firstName: String!, lastName: String!, description: String, url: String, instagram: String, twitter: String, facebook: String, youtube: String, vimeo: String): [Int!]!
 
     deleteUser(id: ID!): Int!
   }
