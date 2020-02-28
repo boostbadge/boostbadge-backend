@@ -48,7 +48,13 @@ export default (sequelize, DataTypes) => {
     profilePhoto: {
       type: Sequelize.STRING,
     },
+    profilePhotoThumbnail: {
+      type: Sequelize.STRING,
+    },
     coverPhoto: {
+      type: Sequelize.STRING,
+    },
+    coverPhotoThumbnail: {
       type: Sequelize.STRING,
     },
     firstName: {

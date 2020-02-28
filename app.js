@@ -4,7 +4,7 @@ import cookieParser from 'cookie-parser';
 import jwt from 'jsonwebtoken';
 import corsOptions from './config/cors';
 
-//  Create & Configure Express App
+// Create & Configure Express App
 const app = express();
 app.use(cookieParser());
 app.use(cors(corsOptions));

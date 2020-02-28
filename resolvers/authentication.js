@@ -4,6 +4,11 @@ import jwt from 'jsonwebtoken';
 import { randomBytes } from 'crypto';
 import { promisify } from 'util';
 
+const defaultCoverPhoto =
+  'https://boostbadge.com/wp-content/plugins/ultimate-member/assets/img/default_avatar.jpg';
+const defaultProfilePhoto =
+  'https://boostbadge.com/wp-content/plugins/ultimate-member/assets/img/default_avatar.jpg';
+
 export default {
   Query: {
     getCurrentUser: (parent, args, { models, req }, info) => {
@@ -29,6 +34,8 @@ export default {
         ...args,
         email,
         password,
+        coverPhoto: defaultCoverPhoto,
+        profilePhoto: defaultProfilePhoto,
       }).catch(function(err) {
         console.log(err);
       });

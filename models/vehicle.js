@@ -14,6 +14,12 @@ export default sequelize => {
     featuredImage: {
       type: Sequelize.STRING,
     },
+    featuredImageCover: {
+      type: Sequelize.STRING,
+    },
+    featuredImageFull: {
+      type: Sequelize.STRING,
+    },
     forSale: {
       type: Sequelize.BOOLEAN,
       allowNull: false,

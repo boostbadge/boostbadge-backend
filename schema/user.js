@@ -11,7 +11,9 @@ export default `
     role: String!
     verified: Boolean
     profilePhoto: String
+    profilePhotoThumbnail: String
     coverPhoto: String
+    coverPhotoThumbnail: String
     firstName: String!
     lastName: String!
     description: String
@@ -32,9 +34,9 @@ export default `
   }
 
   type Mutation {
-    createUser(wpId: Int, email: String!, displayName: String!, role: String!, verified: Boolean, profilePhoto: String, coverPhoto: String, firstName: String!, lastName: String!, description: String, url: String, instagram: String, twitter: String, facebook: String, youtube: String, vimeo: String): User!
+    createUser(wpId: Int, email: String!, password: String!, displayName: String!, role: String!, verified: Boolean, profilePhoto: String, profilePhotoThumbnail: String, coverPhoto: String, coverPhotoThumbnail: String, firstName: String!, lastName: String!, description: String, url: String, instagram: String, twitter: String, facebook: String, youtube: String, vimeo: String): User!
 
-    updateUser(id: ID!, wpId: Int, email: String!, displayName: String!, role: String!, verified: Boolean, profilePhoto: String, coverPhoto: String, firstName: String!, lastName: String!, description: String, url: String, instagram: String, twitter: String, facebook: String, youtube: String, vimeo: String): [Int!]!
+    updateUser(id: ID!, wpId: Int, email: String!, displayName: String!, role: String!, verified: Boolean, pprofilePhoto: String, profilePhotoThumbnail: String, coverPhoto: String, coverPhotoThumbnail: String, firstName: String!, lastName: String!, description: String, url: String, instagram: String, twitter: String, facebook: String, youtube: String, vimeo: String): [Int!]!
 
     deleteUser(id: ID!): Int!
   }
