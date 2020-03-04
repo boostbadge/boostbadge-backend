@@ -1,3 +1,4 @@
+import Sequelize from 'sequelize';
 import bcrypt from 'bcryptjs';
 
 export default {
@@ -6,8 +7,10 @@ export default {
   },
 
   Query: {
-    listUsers: (parent, args, { models }) =>
+    listUsers: (parent, { offset, limit }, { models }) =>
       models.User.findAll({
+        offset,
+        limit,
         order: [
           ['verified', 'DESC'],
           ['createdAt', 'DESC'],
@@ -15,6 +18,18 @@ export default {
       }),
     getUser: (parent, { id }, { models }) =>
       models.User.findOne({ where: { id } }),
+    numOfUsers: async (parent, args, { models }) => {
+      try {
+        const results = await models.User.findAll({
+          attributes: [
+            [Sequelize.fn('COUNT', Sequelize.col('id')), 'aggregate'],
+          ],
+        });
+        return results[0].dataValues.aggregate;
+      } catch (e) {
+        return 0;
+      }
+    },
   },
 
   Mutation: {

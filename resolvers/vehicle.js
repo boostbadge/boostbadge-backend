@@ -1,3 +1,5 @@
+import Sequelize from 'sequelize';
+
 export default {
   Vehicle: {
     user: parent => parent.getUser(),
@@ -7,9 +9,22 @@ export default {
   },
 
   Query: {
-    listVehicles: (parent, args, { models }) => models.Vehicle.findAll(),
+    listVehicles: (parent, { offset, limit }, { models }) =>
+      models.Vehicle.findAll({ offset, limit }),
     getVehicle: (parent, { id }, { models }) =>
       models.Vehicle.findOne({ where: { id } }),
+    numOfVehicles: async (parent, args, { models }) => {
+      try {
+        const results = await models.Vehicle.findAll({
+          attributes: [
+            [Sequelize.fn('COUNT', Sequelize.col('id')), 'aggregate'],
+          ],
+        });
+        return results[0].dataValues.aggregate;
+      } catch (e) {
+        return 0;
+      }
+    },
   },
 
   Mutation: {

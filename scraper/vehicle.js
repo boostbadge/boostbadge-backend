@@ -3,6 +3,13 @@ import cloudinary from 'cloudinary';
 import models from '../models';
 import connection from './connection';
 
+const defaultFeaturedImage =
+  'https://res.cloudinary.com/thenicemancometh/image/upload/c_fill,g_face,h_480,q_auto,w_640/v1583286030/boostbadge/vehicles/default.jpg';
+const defaultFeaturedImageCover =
+  'https://res.cloudinary.com/thenicemancometh/image/upload/c_fill,g_face,h_350,q_auto,w_350/v1583286030/boostbadge/vehicles/default.jpg';
+const defaultFeaturedImageFull =
+  'https://res.cloudinary.com/thenicemancometh/image/upload/v1583286030/boostbadge/vehicles/default.jpg';
+
 cloudinary.v2.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
@@ -17,15 +24,19 @@ async function createPhotos(url) {
       });
       console.log(`Uploaded Vehicle Photo: ${url}`);
       return [
-        result.eager[0].secure_url,
         result.eager[1].secure_url,
+        result.eager[0].secure_url,
         result.secure_url,
       ];
     } catch (e) {
-      throw new Error(`Error uploading Vehicle Photo: ${e.message}`);
+      console.log(`Error uploading Vehicle Photo: ${e.message}`);
     }
   }
-  return [null, null, null];
+  return [
+    defaultFeaturedImage,
+    defaultFeaturedImageCover,
+    defaultFeaturedImageFull
+  ];
 }
 
 async function createVehicleLikes(vehicle) {
@@ -88,10 +99,18 @@ async function updateVehicle(vehicle, wpVehicle) {
   const user = await models.User.findOne({
     where: { wpId: wpVehicle.ownerId },
   });
+  const [
+    featuredImage,
+    featuredImageCover,
+    featuredImageFull,
+  ] = await createPhotos(wpVehicle.featuredImage);
+
   return vehicle.update({
     wpId: wpVehicle.wpId,
     userId: user.id,
-    featuredImage: wpVehicle.featuredImage,
+    featuredImage,
+    featuredImageCover,
+    featuredImageFull,
     forSale: wpVehicle.forSale != null ? wpVehicle.forSale : false,
     year: wpVehicle.year,
     make: wpVehicle.make,

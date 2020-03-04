@@ -5,12 +5,12 @@ import { scrapeBadges } from './badge';
 import models from '../models';
 
 const scrape = async () => {
-  // await models.sequelize.sync({ force: true });
+  await models.sequelize.sync({ force: true });
 
-  // await scrapeUsers();
+  await scrapeUsers();
   await scrapeVehicles();
-  // await scrapePhotos();
-  // await scrapeBadges();
+  await scrapePhotos();
+  await scrapeBadges();
 };
 
 scrape();

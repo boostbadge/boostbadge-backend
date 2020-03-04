@@ -29,8 +29,9 @@ export default `
   }
 
   type Query {
-    listUsers: [User!]!
+    listUsers(offset: Int, limit: Int): [User!]!
     getUser(id: ID!): User!
+    numOfUsers: Int!
   }
 
   type Mutation {
